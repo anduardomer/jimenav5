@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💖 Preguntas para Jimena 💖</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body {
+            background-color: #FFB6C1;
+            color: #4A235A;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .btn-custom {
+            background-color: #FF69B4;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💖 Hola, Jimena 💖</h1>
+        <p>🌹 Vamos a hacerte algunas preguntas sobre lo que más te satisface en la intimidad. 🌹</p>
+        <button class="btn btn-custom" onclick="hacerPreguntas()">🔥 Comenzar 🔥</button>
+    </div>
+
+    <script>
+        function hacerPreguntas() {
+            const preguntas = [
+                "😍 ¿Qué es lo que más disfrutas en la intimidad?",
+                "🌙 ¿Cómo prefieres que sea el ambiente ideal para un momento especial con Mer?",
+                "💋 ¿Qué tipo de caricias te gustan más?",
+                "🔥 ¿Te gusta más la iniciativa o prefieres llevar el control con Mer?",
+                "😏 ¿Qué es lo que más te excita cuando estás con Mer?",
+                "💑 ¿Cuál es tu fantasía favorita que te gustaría cumplir con Mer?",
+                "💖 ¿Qué es lo que hace Mer que más te hace sentir especial en la cama?",
+                "🥰 ¿Cuál ha sido el momento más inolvidable que has tenido con Mer?"
+            ];
+            let respuestas = [];
+            
+            function preguntar(i) {
+                if (i < preguntas.length) {
+                    Swal.fire({
+                        title: preguntas[i],
+                        input: 'text',
+                        showCancelButton: false,
+                        confirmButtonText: 'Siguiente',
+                        allowOutsideClick: false
+                    }).then((result) => {
+                        if (result.value) {
+                            respuestas.push(result.value);
+                            preguntar(i + 1);
+                        }
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Gracias, Jimena 💕',
+                        text: 'Tus respuestas han sido registradas. 😘',
+                        icon: 'success'
+                    });
+                }
+            }
+            
+            preguntar(0);
+        }
+    </script>
+</body>
+</html>
